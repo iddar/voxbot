@@ -1,0 +1,22 @@
+{
+  "name": "voxbot",
+  "version": "1.0.0",
+  "description": "bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 'no test'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iddar/voxbot.git"
+  },
+  "keywords": [
+    "bot"
+  ],
+  "author": "iddar olivares",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iddar/voxbot/issues"
+  },
+  "homepage": "https://github.com/iddar/voxbot#readme"
+}
