@@ -31,14 +31,16 @@ board.on('ready', function() {
 
   head.to(HEAD.DOWN);
   jaw.to(JAW.CLOSED);
-  eye.blink(500);
+  //eye.blink(500);
 
   proximity.on('data', function() {
     if (isClose(this.cm, distance) && !skullMoving) {
       distance = this.cm;
       skullMoving = true;
+      eye.on();
       HeadMovements.laugh(head, jaw, function() {
         console.log('Done lauging bitch');
+        eye.off();
         skullMoving = false;
       });
     }
