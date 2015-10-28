@@ -1,7 +1,7 @@
 var series = require('nimble').series;
-var HEAD_UP = 90;
-var HEAD_DOWN = 120;
-var MOUTH_OPEN = 70;
+var HEAD_UP = 120;
+var HEAD_DOWN = 90;
+var MOUTH_OPEN = 100;
 var MOUTH_CLOSED = 160;
 
 var HeadMovements = {};

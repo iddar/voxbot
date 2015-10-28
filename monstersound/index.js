@@ -3,9 +3,9 @@ var Player = require('player');
 
 var songs = [
   path.join(__dirname, './mp3/monster.mp3')
-]
+];
 
-new Player(songs)
+var player = new Player(songs)
   .on('playing', function(song) {
     console.log('I\'m playing... ');
   })
@@ -15,5 +15,6 @@ new Player(songs)
   .on('error', function(err) {
     console.log('Opps...!')
     console.log(err);
-  })
-  .play()
+  });
+
+module.exports = player;

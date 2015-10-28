@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/iddar/voxbot#readme",
   "dependencies": {
-    "johnny-five": "^0.9.1"
+    "johnny-five": "^0.9.1",
+    "nimble": "0.0.2",
+    "player": "^0.5.1"
   }
 }
