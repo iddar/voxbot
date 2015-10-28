@@ -1,14 +1,21 @@
 var five = require('johnny-five');
+var HeadMovements = require('./commands/head-movements');
 var board = new five.Board();
 
 var HEAD = {UP: 90, DOWN: 120};
 var JAW = {OPEN: 60, CLOSED: 170};
+var DISTANCE_TRESHOLD = 5;
 
 var distance = 0;
+var skullMoving = false;
+
+var isObjectClose(objectDistance, previousDistance) {
+  return objectDistance <= previousDistance - DISTANCE_TRESHOLD;
+};
 
 board.on('ready', function() {
   var proximity = new five.Proximity({
-    controller: "HCSR04",
+    controller: 'HCSR04',
     pin: 11
   });
 
@@ -26,10 +33,14 @@ board.on('ready', function() {
   jaw.to(JAW.CLOSED);
   eye.blink(500);
 
-  proximity.on("data", function() {
-    if (this.cm < (distance - 5)) {
+  proximity.on('data', function() {
+    if (isClose(this.cm, distance) && !skullMoving) {
       distance = this.cm;
-      console.log(distance);
+      skullMoving = true;
+      HeadMovements.laugh(head, jaw, function() {
+        console.log('Done lauging bitch');
+        skullMoving = false;
+      });
     }
   });
 });
